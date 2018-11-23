@@ -2,13 +2,14 @@ import {ADD_NOTE,
 	DELETE_NOTE, 
 	FILTER_NOTES, 
 	SAVE_USER_INPUT,
-	 OPEN_ADD_MENU} from '../actions/actionTypes'
+	 OPEN_ADD_MENU,
+	CLOSE_ADD_MENU} from '../actions/actionTypes'
 
 const initialState = {
       openModal:false,
       content:[],
       userInput: "",
-    }
+    };
 
 const reducer = (state = initialState, action) =>{
 
@@ -28,16 +29,12 @@ const reducer = (state = initialState, action) =>{
 					 content: [...state.content,{ key: Math.random(), value:state.userInput}],
 					 userInput: "",
 					});
-		}else{
-
-			return state;
-
 		}
 
 	case OPEN_ADD_MENU:
 
 		return ({...state,
-  				openModal:!state.openModal,
+  				openModal:true,
     			});
 
 	case DELETE_NOTE:
@@ -50,6 +47,12 @@ const reducer = (state = initialState, action) =>{
 
 		return ({...state,
      			 content:state.content
+    			});
+
+	case CLOSE_ADD_MENU:
+
+		return ({...state,
+  				openModal:false,
     			});
 
 	default:

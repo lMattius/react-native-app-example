@@ -1,1 +1,1 @@
-export {saveUserInput, addNote, openAddMenu, deleteNote, filterNotes} from './actions'
+export {saveUserInput, addNote, openAddMenu, deleteNote, filterNotes, closeAddNote} from './actions'

@@ -1,4 +1,4 @@
-import {ADD_NOTE, DELETE_NOTE, FILTER_NOTES, SAVE_USER_INPUT, OPEN_ADD_MENU} from './actionTypes'
+import {ADD_NOTE, DELETE_NOTE, FILTER_NOTES, SAVE_USER_INPUT, OPEN_ADD_MENU, CLOSE_ADD_MENU} from './actionTypes'
 
 export const saveUserInput = (value) => {
 
@@ -9,7 +9,9 @@ export const saveUserInput = (value) => {
 
 export const addNote = () => {
 
-	return {type: ADD_NOTE};
+	return {
+		type: ADD_NOTE
+	};
 
 }
 
@@ -30,5 +32,12 @@ export const filterNotes = () => {
 
 	return {type: FILTER_NOTES,}
 
+
+}
+
+export const closeAddNote = () => {
+
+
+	return {type: CLOSE_ADD_MENU}
 
 }

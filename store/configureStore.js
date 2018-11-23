@@ -4,10 +4,12 @@ import notesReducer from './reducers/root';
 
 const rootReducer = combineReducers({
 	notes: notesReducer,
-})
+});
 
-export default configureStore = () => {
+const configureStore = () => {
 
-	return createStore(rootReducer)
+	return createStore(rootReducer);
 
-}
+};
+
+export default configureStore;

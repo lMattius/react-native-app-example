@@ -1,9 +1,10 @@
 import React,{Component} from 'react';
 import { StyleSheet, Text, View, Button, TextInput, FlatList} from 'react-native';
-import InputNotes from './components/InputNotes'
-import ListItems from './components/ListItems'
-import {connect} from 'react-redux'
-import {saveUserInput, addNote, openAddMenu, deleteNote, filterNotes} from './store/actions/index'
+import InputNotes from './components/InputNotes';
+import ListItems from './components/ListItems';
+import { connect } from 'react-redux';
+import {saveUserInput, addNote, openAddMenu, deleteNote, filterNotes, closeAddNote} from './store/actions/index';
+
 
 
 class App extends Component {
@@ -24,7 +25,7 @@ class App extends Component {
 
     this.props.saveUserInput(value);
 
-   }
+   };
 
   handleAddNotes = () => {
 
@@ -46,7 +47,7 @@ class App extends Component {
 
 
 
-  }
+  };
 
   openAddNote = () =>{
 
@@ -54,9 +55,15 @@ class App extends Component {
     //   openModal:!this.state.openModal,
     // });
 
-    this.props.openAddNote();
+    if(this.props.openModal){
 
+    this.props.closeAddNote();
+
+    }else{
+
+    this.props.openAddNote();
   }
+  };
 
   handleEraseNote = (key) =>{
 
@@ -66,7 +73,7 @@ class App extends Component {
 
     this.props.deleteNote(key);
 
-  }
+  };
 
   FilterNotes = (text) => {
 
@@ -77,7 +84,7 @@ class App extends Component {
     this.props.filterNotes();
 
 
-  }
+  };
 
             // <Button title="menu" 
             // style={styles.searchbar}
@@ -174,6 +181,7 @@ const mapDispatchToProps = dispatch => {
     openAddNote: () => dispatch(openAddNote()),
     deleteNote: (key) => dispatch(deselectPlace(key)),
     filterNotes: (text) => dispatch(filterNotes(text)),
+    closeAddNote: () => dispatch(closeAddNote()),
   };
 };
 
@@ -181,5 +189,7 @@ const mapDispatchToProps = dispatch => {
 
 
 export default connect(mapStateToProps,mapDispatchToProps)(App);
+
+
 
 

@@ -7,10 +7,10 @@ import {createStore} from 'redux'
 
 const store = configureStore();
 
-class RNRedux extends React.Component {
-    render = () => (<Provider store={store}>
+const  RNRedux = () => (
+	<Provider store={store}>
         <App />
     </Provider>);
-}
+
 
 AppRegistry.registerComponent('empty-project-template', () => RNRedux);

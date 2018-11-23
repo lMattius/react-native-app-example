@@ -6,7 +6,7 @@ const rootReducer = combineReducers({
 	notes: notesReducer,
 })
 
-import default const configureStore = () => {
+export default configureStore = () => {
 
 	return createStore(rootReducer)
 

@@ -167,8 +167,19 @@ const mapStateToProps = (state) => {
 
 }
 
+const mapDispatchToProps = dispatch => {
+  return {
+    saveUserInput: value => dispatch(saveUserInput(value)),
+    addNote: () => dispatch(addNote()),
+    openAddNote: () => dispatch(openAddNote()),
+    deleteNote: (key) => dispatch(deselectPlace(key)),
+    filterNotes: (text) => dispatch(filterNotes(text)),
+  };
+};
 
 
-export default connect(mapStateToProps,{saveUserInput, addNote, openAddMenu, deleteNote, filterNotes})(App);
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(App);
 
 
